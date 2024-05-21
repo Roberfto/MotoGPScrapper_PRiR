@@ -1,0 +1,139 @@
+@font-face {
+    font-family: MotoGPDisplay;
+    src: url(fonts/MotoGPDisplay-Bold.woff) format("woff");
+    font-weight: 700;  // Bold
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: MotoGPTextBold;
+    src: url(fonts/MotoGPText-Bold.woff) format("woff");
+    font-weight: 400;  // Normal weight
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'MotoGPDisplay', Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.event-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 80%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+}
+
+.event-info {
+    width: 65%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.event-date {
+    font-size: 18px;
+    color: #e53935;
+    font-weight: bold;
+}
+
+.event-name {
+    font-size: 24px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.flag-icon {
+    max-width: 30px;
+    max-height: 20px;
+    object-fit: contain;
+    margin-top: 10px;
+    border: 1px solid #333; /* Added border */
+    border-radius: 4px; /* Added rounded corners */
+}
+
+.event-image {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #202020;
+}
+
+.event-image img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.button-link:hover, .button-link:focus {
+    background-color: #b30000;
+    color: white;
+    text-decoration: none;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 600px) {
+    .event-container {
+        flex-direction: row;
+    }
+
+    .event-info {
+        width: 70%;
+        text-align: left;
+    }
+
+    .event-image {
+        width: 30%;
+    }
+}

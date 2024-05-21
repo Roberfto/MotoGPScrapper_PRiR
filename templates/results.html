@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="title-container">
+        <h1>Race Date and Track</h1>
+    </div>
+    <div class="container">
+        {% if stories %}
+            {% for event in stories %}
+                <div class="event-container">
+                    <div class="event-info">
+                        <p class="event-date"><strong>Date:</strong> {{ event.date }}</p>
+                        <p class="event-name"><strong>Name:</strong> {{ event.name }}</p>
+                        {% if event.additional_image_url %}
+                            <img src="{{ event.additional_image_url }}" alt="{{ event.name }} Flag" class="flag-icon">
+                        {% endif %}
+                        {% if event.url %}
+                            <p><a href="{{ event.url }}" class="button-link">Visit Event</a></p>
+                        {% endif %}
+                    </div>
+                    <div class="event-image">
+                        {% if event.track_image_url %}
+                            <img src="{{ event.track_image_url }}" alt="{{ event.name }} Track">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='no-image-available.png') }}" alt="No image available">
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No stories found. Try scraping again.</p>
+        {% endif %}
+    </div>
+    <footer>
+        <a href="/" class="go-back">Go Back</a>
+    </footer>
+</body>
+</html>

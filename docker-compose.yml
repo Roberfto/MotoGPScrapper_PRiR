@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_DATABASE: Projekt
+
+  engine:
+    build:
+      context: .
+      dockerfile: engine.Dockerfile
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+    depends_on:
+      - mongo
+
+
+  interface:
+    build:
+      context: .
+      dockerfile: interface.Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+      - engine
+
+volumes:
+  mongo_data:
